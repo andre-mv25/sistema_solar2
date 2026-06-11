@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Tierra | Sistema Solar</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="../sol.html">El Sol</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="pagina">
+  <a class="volver" href="../index.html">← Volver</a>
+  <div class="cabeza">
+    <div class="cabeza-bola" style="background:radial-gradient(circle at 35% 35%,#6db8e8,#2d7ab5 35%,#1a5276 70%,#0d2f47);box-shadow:0 0 40px #4b9cd333"></div>
+    <div class="cabeza-info">
+      <h1 style="color:#4b9cd3">Tierra</h1>
+      <span class="tipo">Rocoso</span>
+      <div class="desc">Único planeta con vida conocida. Agua líquida, atmósfera rica en nitrógeno y oxígeno, campo magnético protector.</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-l">Radio</div><div class="stat-v">6,371 km</div></div>
+    <div class="stat"><div class="stat-l">Distancia del Sol</div><div class="stat-v">149.6 millones km</div></div>
+    <div class="stat"><div class="stat-l">Período orbital</div><div class="stat-v">365.25 días</div></div>
+    <div class="stat"><div class="stat-l">Lunas</div><div class="stat-v">1</div></div>
+    <div class="stat"><div class="stat-l">Gravedad</div><div class="stat-v">9.81 m/s²</div></div>
+    <div class="stat"><div class="stat-l">Tipo</div><div class="stat-v">Rocoso</div></div>
+  </div>
+  <div class="texto"><p>La Tierra es el único planeta conocido que alberga vida. Su atmósfera rica en nitrógeno y oxígeno, junto con la presencia de agua líquida en su superficie, crean las condiciones perfectas para la vida. Posee un campo magnético que la protege de la radiación solar y una Luna que estabiliza su eje de rotación, regulando las estaciones.</p></div>
+  <div class="mini-orbita"><a href="mercurio.html" style="background:#b5b5b5"></a><a href="venus.html" style="background:#e8cda0"></a><a href="tierra.html" style="background:#4b9cd3"></a><a href="marte.html" style="background:#c1440e"></a><a href="jupiter.html" style="background:#d4a574"></a><a href="saturno.html" style="background:#ead6b8"></a><a href="urano.html" style="background:#7ec8e3"></a><a href="neptuno.html" style="background:#3b5c9a"></a></div>
+</div>
+
+<script src="../js/datos.js"></script>
+<script src="../js/estrellas.js"></script>
+<script src="../js/sistema.js"></script>
+</body>
+</html>

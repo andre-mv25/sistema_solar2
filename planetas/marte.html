@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Marte | Sistema Solar</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="../sol.html">El Sol</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="pagina">
+  <a class="volver" href="../index.html">← Volver</a>
+  <div class="cabeza">
+    <div class="cabeza-bola" style="background:radial-gradient(circle at 35% 35%,#e87540,#c1440e 35%,#8a2e08 70%,#5a1a04);box-shadow:0 0 40px #c1440e33"></div>
+    <div class="cabeza-info">
+      <h1 style="color:#c1440e">Marte</h1>
+      <span class="tipo">Rocoso</span>
+      <div class="desc">El planeta rojo. Tiene el volcán más grande (Monte Olimpo, 21.9 km) y evidencias de agua pasada.</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-l">Radio</div><div class="stat-v">3,390 km</div></div>
+    <div class="stat"><div class="stat-l">Distancia del Sol</div><div class="stat-v">227.9 millones km</div></div>
+    <div class="stat"><div class="stat-l">Período orbital</div><div class="stat-v">687 días</div></div>
+    <div class="stat"><div class="stat-l">Lunas</div><div class="stat-v">2</div></div>
+    <div class="stat"><div class="stat-l">Gravedad</div><div class="stat-v">3.72 m/s²</div></div>
+    <div class="stat"><div class="stat-l">Tipo</div><div class="stat-v">Rocoso</div></div>
+  </div>
+  <div class="texto"><p>Marte debe su color rojizo al óxido de hierro (herrumbre) en su superficie. Tiene el volcán más grande del sistema solar, el Monte Olimpo, con 21.9 km de altura, y el cañón más grande, Valles Marineris. Su delgada atmósfera es principalmente dióxido de carbono, y se han encontrado evidencias de que antiguamente tuvo agua líquida.</p></div>
+  <div class="mini-orbita"><a href="mercurio.html" style="background:#b5b5b5"></a><a href="venus.html" style="background:#e8cda0"></a><a href="tierra.html" style="background:#4b9cd3"></a><a href="marte.html" style="background:#c1440e"></a><a href="jupiter.html" style="background:#d4a574"></a><a href="saturno.html" style="background:#ead6b8"></a><a href="urano.html" style="background:#7ec8e3"></a><a href="neptuno.html" style="background:#3b5c9a"></a></div>
+</div>
+
+<script src="../js/datos.js"></script>
+<script src="../js/estrellas.js"></script>
+<script src="../js/sistema.js"></script>
+</body>
+</html>

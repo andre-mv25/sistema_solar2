@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Venus | Sistema Solar</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="../sol.html">El Sol</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="pagina">
+  <a class="volver" href="../index.html">← Volver</a>
+  <div class="cabeza">
+    <div class="cabeza-bola" style="background:radial-gradient(circle at 35% 35%,#f5e6c8,#d4a85c 40%,#b8873a 80%);box-shadow:0 0 40px #e8cda033"></div>
+    <div class="cabeza-info">
+      <h1 style="color:#e8cda0">Venus</h1>
+      <span class="tipo">Rocoso</span>
+      <div class="desc">El planeta más caliente (465°C) por efecto invernadero descontrolado. Gira en sentido contrario al resto.</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-l">Radio</div><div class="stat-v">6,052 km</div></div>
+    <div class="stat"><div class="stat-l">Distancia del Sol</div><div class="stat-v">108.2 millones km</div></div>
+    <div class="stat"><div class="stat-l">Período orbital</div><div class="stat-v">225 días</div></div>
+    <div class="stat"><div class="stat-l">Lunas</div><div class="stat-v">0</div></div>
+    <div class="stat"><div class="stat-l">Gravedad</div><div class="stat-v">8.87 m/s²</div></div>
+    <div class="stat"><div class="stat-l">Tipo</div><div class="stat-v">Rocoso</div></div>
+  </div>
+  <div class="texto"><p>Venus es el planeta más caliente del sistema solar con temperaturas de hasta 465 °C, debido a un efecto invernadero descontrolado causado por su densa atmósfera de dióxido de carbono. Gira en sentido contrario a la mayoría de los planetas y su día es más largo que su año. Es llamado el "gemelo" de la Tierra por su tamaño y masa similares.</p></div>
+  <div class="mini-orbita"><a href="mercurio.html" style="background:#b5b5b5"></a><a href="venus.html" style="background:#e8cda0"></a><a href="tierra.html" style="background:#4b9cd3"></a><a href="marte.html" style="background:#c1440e"></a><a href="jupiter.html" style="background:#d4a574"></a><a href="saturno.html" style="background:#ead6b8"></a><a href="urano.html" style="background:#7ec8e3"></a><a href="neptuno.html" style="background:#3b5c9a"></a></div>
+</div>
+
+<script src="../js/datos.js"></script>
+<script src="../js/estrellas.js"></script>
+<script src="../js/sistema.js"></script>
+</body>
+</html>

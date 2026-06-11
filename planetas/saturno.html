@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Saturno | Sistema Solar</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="../sol.html">El Sol</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="pagina">
+  <a class="volver" href="../index.html">← Volver</a>
+  <div class="cabeza">
+    <div class="cabeza-bola anillado" style="background:radial-gradient(circle at 35% 35%,#f0e4d0,#d4c4a0 35%,#b8a880 70%);box-shadow:0 0 40px #ead6b833"></div>
+    <div class="cabeza-info">
+      <h1 style="color:#ead6b8">Saturno</h1>
+      <span class="tipo">Gaseoso</span>
+      <div class="desc">Famoso por sus anillos de hielo y roca. Es el menos denso: flotaría en agua.</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-l">Radio</div><div class="stat-v">58,232 km</div></div>
+    <div class="stat"><div class="stat-l">Distancia del Sol</div><div class="stat-v">1,434 millones km</div></div>
+    <div class="stat"><div class="stat-l">Período orbital</div><div class="stat-v">29.46 años</div></div>
+    <div class="stat"><div class="stat-l">Lunas</div><div class="stat-v">146</div></div>
+    <div class="stat"><div class="stat-l">Gravedad</div><div class="stat-v">10.44 m/s²</div></div>
+    <div class="stat"><div class="stat-l">Tipo</div><div class="stat-v">Gaseoso</div></div>
+  </div>
+  <div class="texto"><p>Saturno es famoso por su impresionante sistema de anillos compuestos de hielo y roca, que se extienden hasta 282,000 km pero tienen solo unos 10 metros de espesor. Es el planeta menos denso del sistema solar; de hecho, flotaría en el agua. Su atmósfera es similar a la de Júpiter y tiene 146 lunas conocidas, incluyendo Titán, que tiene su propia atmósfera.</p></div>
+  <div class="mini-orbita"><a href="mercurio.html" style="background:#b5b5b5"></a><a href="venus.html" style="background:#e8cda0"></a><a href="tierra.html" style="background:#4b9cd3"></a><a href="marte.html" style="background:#c1440e"></a><a href="jupiter.html" style="background:#d4a574"></a><a href="saturno.html" style="background:#ead6b8"></a><a href="urano.html" style="background:#7ec8e3"></a><a href="neptuno.html" style="background:#3b5c9a"></a></div>
+</div>
+
+<script src="../js/datos.js"></script>
+<script src="../js/estrellas.js"></script>
+<script src="../js/sistema.js"></script>
+</body>
+</html>

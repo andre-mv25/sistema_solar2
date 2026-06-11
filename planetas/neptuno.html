@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Neptuno | Sistema Solar</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="../index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="../index.html">Inicio</a></li>
+    <li><a href="../sol.html">El Sol</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="pagina">
+  <a class="volver" href="../index.html">← Volver</a>
+  <div class="cabeza">
+    <div class="cabeza-bola" style="background:radial-gradient(circle at 35% 35%,#5a8cc8,#2a4a8a 35%,#1a2e5a 70%);box-shadow:0 0 40px #3b5c9a33"></div>
+    <div class="cabeza-info">
+      <h1 style="color:#3b5c9a">Neptuno</h1>
+      <span class="tipo">Helado</span>
+      <div class="desc">El más ventoso: vientos de 2,100 km/h. Descubierto por cálculos matemáticos antes de ser observado.</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-l">Radio</div><div class="stat-v">24,622 km</div></div>
+    <div class="stat"><div class="stat-l">Distancia del Sol</div><div class="stat-v">4,495 millones km</div></div>
+    <div class="stat"><div class="stat-l">Período orbital</div><div class="stat-v">164.8 años</div></div>
+    <div class="stat"><div class="stat-l">Lunas</div><div class="stat-v">16</div></div>
+    <div class="stat"><div class="stat-l">Gravedad</div><div class="stat-v">11.15 m/s²</div></div>
+    <div class="stat"><div class="stat-l">Tipo</div><div class="stat-v">Helado</div></div>
+  </div>
+  <div class="texto"><p>Neptuno es el planeta más ventoso del sistema solar, con vientos que alcanzan los 2,100 km/h. Fue el primer planeta descubierto mediante cálculos matemáticos antes de ser observado directamente. Su color azul intenso se debe a la absorción de luz roja por el metano en su atmósfera.</p></div>
+  <div class="mini-orbita"><a href="mercurio.html" style="background:#b5b5b5"></a><a href="venus.html" style="background:#e8cda0"></a><a href="tierra.html" style="background:#4b9cd3"></a><a href="marte.html" style="background:#c1440e"></a><a href="jupiter.html" style="background:#d4a574"></a><a href="saturno.html" style="background:#ead6b8"></a><a href="urano.html" style="background:#7ec8e3"></a><a href="neptuno.html" style="background:#3b5c9a"></a></div>
+</div>
+
+<script src="../js/datos.js"></script>
+<script src="../js/estrellas.js"></script>
+<script src="../js/sistema.js"></script>
+</body>
+</html>

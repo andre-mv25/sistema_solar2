@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sol | Sistema Solar</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="sol.html" class="act">El Sol</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="pagina">
+  <a class="volver" href="index.html">← Volver</a>
+  <div class="cabeza">
+    <div class="cabeza-bola" style="background:radial-gradient(circle at 35% 35%,#fff7a0,#f9d423 30%,#e8930a 70%,#c07200);box-shadow:0 0 60px rgba(249,212,35,.3)"></div>
+    <div class="cabeza-info">
+      <h1 style="color:#f9d423">Sol</h1>
+      <span class="tipo">Estrella enana amarilla G2V</span>
+      <div class="desc">El Sol contiene el 99.8% de la masa del sistema solar. Su energía se produce mediante fusión nuclear, convirtiendo hidrógeno en helio a 15 millones °C en su núcleo.</div>
+    </div>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="stat-l">Radio</div><div class="stat-v">696,340 km</div></div>
+    <div class="stat"><div class="stat-l">Masa</div><div class="stat-v">1.989 × 10³⁰ kg</div></div>
+    <div class="stat"><div class="stat-l">Temperatura</div><div class="stat-v">5,505 °C</div></div>
+    <div class="stat"><div class="stat-l">Edad</div><div class="stat-v">4,600 millones años</div></div>
+    <div class="stat"><div class="stat-l">Distancia Tierra</div><div class="stat-v">149.6 millones km</div></div>
+    <div class="stat"><div class="stat-l">Tipo</div><div class="stat-v">Estrella enana amarilla G2V</div></div>
+  </div>
+  <div class="texto"><p>El Sol es una estrella de tipo espectral G2V que contiene más del 99.8% de la masa total del sistema solar. Su energía es producida mediante fusión nuclear en su núcleo, donde el hidrógeno se convierte en helio a temperaturas de aproximadamente 15 millones de grados Celsius. Esta energía es la responsable de sostener toda la vida en la Tierra y de gobernar los climas y las estaciones de todos los planetas.</p></div>
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/estrellas.js"></script>
+<script src="js/sistema.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Sistema Solar</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" id="navInicio">Inicio</a></li>
+    <li><a href="sol.html" id="navSol">El Sol</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <h1><span>✦</span> SISTEMA SOLAR</h1>
+  <p>Nuestro hogar en el universo</p>
+  <div class="sistema" id="sistema"></div>
+</section>
+
+<section class="cards">
+  <h2>Explorar planetas</h2>
+  <div class="grid" id="cardsGrid"></div>
+</section>
+
+<script src="js/datos.js"></script>
+<script src="js/estrellas.js"></script>
+<script src="js/sistema.js"></script>
+</body>
+</html>
