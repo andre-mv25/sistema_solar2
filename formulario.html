@@ -87,7 +87,7 @@
   function saveUsers(u) { localStorage.setItem(KEY, JSON.stringify(u)) }
 
   var session = (function(){
-    try { return JSON.parse(localStorage.getItem(SESS)) } catch(e) { return null }
+    try { return JSON.parse(sessionStorage.getItem(SESS)) } catch(e) { return null }
   })();
 
   var authForms = document.getElementById('authForms');
@@ -137,7 +137,7 @@
     if (!users[email]) { errEl.textContent = 'No existe una cuenta con ese correo.'; return }
     if (users[email].pass !== pass) { errEl.textContent = 'Contraseña incorrecta.'; return }
     session = { user: users[email].user, email: email };
-    localStorage.setItem(SESS, JSON.stringify(session));
+    sessionStorage.setItem(SESS, JSON.stringify(session));
     errEl.textContent = '';
     window.location.href = 'index.html';
   });
@@ -158,13 +158,13 @@
     users[email] = { user: user, pass: pass };
     saveUsers(users);
     session = { user: user, email: email };
-    localStorage.setItem(SESS, JSON.stringify(session));
+    sessionStorage.setItem(SESS, JSON.stringify(session));
     errEl.textContent = '';
     window.location.href = 'index.html';
   });
 
   document.getElementById('authLogout').addEventListener('click', function(){
-    localStorage.removeItem(SESS);
+    sessionStorage.removeItem(SESS);
     session = null;
     showSession();
   });
