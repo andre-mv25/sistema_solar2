@@ -44,7 +44,7 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:
 .hero>p{font-size:.75rem;letter-spacing:6px;color:rgba(255,255,255,.2);text-transform:uppercase;margin-bottom:50px}
 
 /* ===== SOLAR SYSTEM ===== */
-.sistema{position:relative;width:520px;height:520px;margin:0 auto 50px}
+.sistema{position:relative;width:400px;height:400px;margin:0 auto 50px}
 .orbita{position:absolute;top:50%;left:50%;border-radius:50%;border:1px solid rgba(255,255,255,.03);transform:translate(-50%,-50%);pointer-events:none}
 .p-orbita{position:absolute;animation:orbitar var(--o) linear infinite}
 @keyframes orbitar{from{transform:rotate(0deg)translateX(var(--r))rotate(0deg)}to{transform:rotate(360deg)translateX(var(--r))rotate(-360deg)}}
@@ -118,12 +118,12 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:700px){
-  .sistema{width:340px;height:340px}.sol-sistema{width:40px;height:40px}
+  .sistema{width:320px;height:320px}.sol-sistema{width:40px;height:40px}
   .hero h1{font-size:1.4rem;letter-spacing:8px}.hero>p{font-size:.6rem;letter-spacing:4px;margin-bottom:30px}
   .grid{grid-template-columns:repeat(auto-fill,minmax(100px,1fr));gap:8px}.card{padding:14px 8px 12px}.card-bola{width:28px;height:28px}
   .cabeza{flex-direction:column;text-align:center;gap:24px}.cabeza-bola{width:110px;height:110px}.cabeza-info h1{font-size:2rem;letter-spacing:6px}.cabeza-info .desc{max-width:100%}
   .stats{grid-template-columns:1fr 1fr}
 }
 @media(max-width:400px){
-  .sistema{width:260px;height:260px}.sol-sistema{width:30px;height:30px}.hero h1{font-size:1.1rem}.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr}
+  .sistema{width:240px;height:240px}.sol-sistema{width:30px;height:30px}.hero h1{font-size:1.1rem}.grid{grid-template-columns:repeat(2,1fr)}.stats{grid-template-columns:1fr}
 }

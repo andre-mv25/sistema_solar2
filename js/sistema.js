@@ -2,13 +2,13 @@
   var base = window.location.pathname.includes('/planetas/') ? '../' : '';
   var sist=document.getElementById('sistema');
   if(!sist)return;
-  var radios=[36,52,68,86,110,138,168,200];
+  var radios=[26,38,50,64,82,104,126,150];
   radios.forEach(function(r){var o=document.createElement('div');o.className='orbita';o.style.width=r*2+'px';o.style.height=r*2+'px';sist.appendChild(o)});
 
   var solEl=document.createElement('a');solEl.className='sol-sistema';solEl.href=base+'sol.html';sist.appendChild(solEl);
   var solL=document.createElement('div');solL.className='sol-label';solL.textContent='Sol';sist.appendChild(solL);
 
-  var orbitas=[8,12,16,20,26,32,38,44];
+  var orbitas=[6,9,12,15,20,24,28,33];
   planetas.forEach(function(p,i){
     var o=document.createElement('div');o.className='p-orbita';
     o.style.setProperty('--o',(20+i*10)+'s');o.style.setProperty('--r',orbitas[i]+'px');
