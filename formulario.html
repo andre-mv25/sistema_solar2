@@ -158,9 +158,7 @@
     session = { user: users[email].user, email: email };
     localStorage.setItem(SESS, JSON.stringify(session));
     errEl.textContent = '';
-    document.getElementById('loginEmail').value = '';
-    document.getElementById('loginPass').value = '';
-    showSession();
+    window.location.href = 'index.html';
   });
 
   document.getElementById('formRegister').addEventListener('submit', function(e){
@@ -181,11 +179,7 @@
     session = { user: user, email: email };
     localStorage.setItem(SESS, JSON.stringify(session));
     errEl.textContent = '';
-    document.getElementById('regUser').value = '';
-    document.getElementById('regEmail').value = '';
-    document.getElementById('regPass').value = '';
-    document.getElementById('regPass2').value = '';
-    showSession();
+    window.location.href = 'index.html';
   });
 
   document.getElementById('authLogout').addEventListener('click', function(){
