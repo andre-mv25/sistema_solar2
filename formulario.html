@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Acceso | Sistema Solar</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="sol.html">El Sol</a></li>
+    <li><a href="formulario.html" class="act">Acceso</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="pagina">
+  <a class="volver" href="index.html">← Volver</a>
+  <div class="cabeza">
+    <div class="cabeza-info">
+      <h1 style="color:#f9d423">Acceso</h1>
+      <span class="tipo">Inicia sesión o crea una cuenta</span>
+      <div class="desc">Ingresa con tu cuenta para explorar el sistema solar.</div>
+    </div>
+  </div>
+
+  <div id="authSession" class="auth-session">
+    <div class="auth-card">
+      <div class="auth-avatar" id="authAvatar"></div>
+      <div class="auth-user" id="authUser"></div>
+      <div class="auth-email" id="authEmail"></div>
+      <button class="auth-out" id="authLogout">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div id="authForms" class="auth">
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <div class="auth-tab act" data-tab="login">Iniciar sesión</div>
+        <div class="auth-tab" data-tab="register">Crear cuenta</div>
+      </div>
+
+      <form id="formLogin" class="auth-form act">
+        <div class="auth-campo">
+          <label>Correo electrónico</label>
+          <input type="email" id="loginEmail" required>
+        </div>
+        <div class="auth-campo">
+          <label>Contraseña</label>
+          <input type="password" id="loginPass" required>
+        </div>
+        <div class="auth-err" id="loginErr"></div>
+        <button type="submit" class="auth-btn">Entrar</button>
+      </form>
+
+      <form id="formRegister" class="auth-form">
+        <div class="auth-campo">
+          <label>Nombre de usuario</label>
+          <input type="text" id="regUser" required>
+        </div>
+        <div class="auth-campo">
+          <label>Correo electrónico</label>
+          <input type="email" id="regEmail" required>
+        </div>
+        <div class="auth-campo">
+          <label>Contraseña</label>
+          <input type="password" id="regPass" required>
+        </div>
+        <div class="auth-campo">
+          <label>Confirmar contraseña</label>
+          <input type="password" id="regPass2" required>
+        </div>
+        <div class="auth-err" id="regErr"></div>
+        <button type="submit" class="auth-btn">Crear cuenta</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/estrellas.js"></script>
+<script src="js/sistema.js"></script>
+<script>
+(function(){
+  var KEY = 'sistemaSolarUsers';
+  var SESS = 'sistemaSolarSession';
+
+  function getUsers() {
+    try { return JSON.parse(localStorage.getItem(KEY)) || {} } catch(e) { return {} }
+  }
+  function saveUsers(u) { localStorage.setItem(KEY, JSON.stringify(u)) }
+
+  var session = (function(){
+    try { return JSON.parse(localStorage.getItem(SESS)) } catch(e) { return null }
+  })();
+
+  var authForms = document.getElementById('authForms');
+  var authSession = document.getElementById('authSession');
+  var avatarEl = document.getElementById('authAvatar');
+  var userEl = document.getElementById('authUser');
+  var emailEl = document.getElementById('authEmail');
+
+  function showSession() {
+    if (session) {
+      authForms.style.display = 'none';
+      authSession.style.display = 'block';
+      avatarEl.textContent = session.user.charAt(0).toUpperCase();
+      userEl.textContent = session.user;
+      emailEl.textContent = session.email;
+    } else {
+      authForms.style.display = 'block';
+      authSession.style.display = 'none';
+    }
+  }
+  showSession();
+
+  var tabs = document.querySelectorAll('.auth-tab');
+  var forms = {
+    login: document.getElementById('formLogin'),
+    register: document.getElementById('formRegister')
+  };
+
+  tabs.forEach(function(tab){
+    tab.addEventListener('click', function(){
+      tabs.forEach(function(t){ t.classList.remove('act') });
+      tab.classList.add('act');
+      var t = tab.getAttribute('data-tab');
+      forms.login.classList.toggle('act', t === 'login');
+      forms.register.classList.toggle('act', t === 'register');
+      document.getElementById('loginErr').textContent = '';
+      document.getElementById('regErr').textContent = '';
+    });
+  });
+
+  document.getElementById('formLogin').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('loginEmail').value.trim();
+    var pass = document.getElementById('loginPass').value;
+    var errEl = document.getElementById('loginErr');
+    var users = getUsers();
+    if (!users[email]) { errEl.textContent = 'No existe una cuenta con ese correo.'; return }
+    if (users[email].pass !== pass) { errEl.textContent = 'Contraseña incorrecta.'; return }
+    session = { user: users[email].user, email: email };
+    localStorage.setItem(SESS, JSON.stringify(session));
+    errEl.textContent = '';
+    document.getElementById('loginEmail').value = '';
+    document.getElementById('loginPass').value = '';
+    showSession();
+  });
+
+  document.getElementById('formRegister').addEventListener('submit', function(e){
+    e.preventDefault();
+    var user = document.getElementById('regUser').value.trim();
+    var email = document.getElementById('regEmail').value.trim();
+    var pass = document.getElementById('regPass').value;
+    var pass2 = document.getElementById('regPass2').value;
+    var errEl = document.getElementById('regErr');
+    if (!user) { errEl.textContent = 'Ingresa un nombre de usuario.'; return }
+    if (!email) { errEl.textContent = 'Ingresa un correo electrónico.'; return }
+    if (pass.length < 4) { errEl.textContent = 'La contraseña debe tener al menos 4 caracteres.'; return }
+    if (pass !== pass2) { errEl.textContent = 'Las contraseñas no coinciden.'; return }
+    var users = getUsers();
+    if (users[email]) { errEl.textContent = 'Ya existe una cuenta con ese correo.'; return }
+    users[email] = { user: user, pass: pass };
+    saveUsers(users);
+    session = { user: user, email: email };
+    localStorage.setItem(SESS, JSON.stringify(session));
+    errEl.textContent = '';
+    document.getElementById('regUser').value = '';
+    document.getElementById('regEmail').value = '';
+    document.getElementById('regPass').value = '';
+    document.getElementById('regPass2').value = '';
+    showSession();
+  });
+
+  document.getElementById('authLogout').addEventListener('click', function(){
+    localStorage.removeItem(SESS);
+    session = null;
+    showSession();
+  });
+})();
+</script>
+</body>
+</html>
