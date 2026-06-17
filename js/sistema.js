@@ -16,8 +16,7 @@
     b.style.width=(p.tam-6)+'px';b.style.height=(p.tam-6)+'px';
     b.style.background=p.grad;b.style.boxShadow='0 0 12px '+p.color+'33';
     if(p.anill){var an=document.createElement('div');an.className='anillo';b.appendChild(an)}
-    var l=document.createElement('div');l.className='p-label';l.textContent=p.nombre;
-    b.appendChild(l);o.appendChild(b);sist.appendChild(o);
+    o.appendChild(b);sist.appendChild(o);
   });
 
   var grid=document.getElementById('cardsGrid');
