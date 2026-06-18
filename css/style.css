@@ -116,6 +116,21 @@ nav{position:fixed;top:0;left:0;width:100%;z-index:100;display:flex;align-items:
 .auth-out{display:inline-block;padding:10px 28px;background:transparent;border:1px solid rgba(255,255,255,.06);border-radius:8px;color:rgba(255,255,255,.3);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;cursor:pointer;transition:.3s}
 .auth-out:hover{color:rgba(255,255,255,.6);border-color:rgba(255,255,255,.15)}
 
+/* ===== ADD CUERPO FORM ===== */
+.add-cuerpo .auth-card{padding:36px 32px 32px}
+.add-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 16px}
+.add-cuerpo select,.add-cuerpo textarea{width:100%;padding:12px 14px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:8px;color:#fff;font-size:.9rem;outline:none;transition:.3s;font-family:inherit}
+.add-cuerpo select option{background:#1a1a2e;color:#fff}
+.add-cuerpo select:focus,.add-cuerpo textarea:focus{border-color:rgba(249,212,35,.3);background:rgba(255,255,255,.04)}
+.add-cuerpo textarea{resize:vertical;min-height:60px}
+.add-cuerpo input[type="checkbox"]{accent-color:#f9d423;width:16px;height:16px;margin-right:6px;cursor:pointer;flex-shrink:0}
+.add-cuerpo details summary{list-style:none;display:flex;align-items:center;gap:4px}
+.add-cuerpo details summary::-webkit-details-marker{display:none}
+.add-cuerpo details summary::before{content:'▸';font-size:10px;transition:transform .3s;display:inline-block;color:rgba(255,255,255,.15)}
+.add-cuerpo details[open] summary::before{transform:rotate(90deg)}
+.add-err{font-size:.75rem;color:#c1440e;margin-top:10px;min-height:1.2em;text-align:center}
+@media(max-width:600px){.add-grid{grid-template-columns:1fr}}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:700px){
   .sistema{width:320px;height:320px}.sol-sistema{width:40px;height:40px}

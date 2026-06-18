@@ -10,6 +10,24 @@
 
 <div id="stars"></div>
 
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="formulario.html" class="act">Sesion</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
 <div class="pagina" style="padding-top:40px">
   <a class="volver" href="index.html">← Volver</a>
   <div class="cabeza">
@@ -71,6 +89,41 @@
       </form>
     </div>
   </div>
+
+  <div id="addCuerpo" class="auth add-cuerpo" style="margin-top:40px;display:none">
+    <div class="auth-card">
+      <h2 style="font-size:.9rem;font-weight:300;letter-spacing:4px;text-transform:uppercase;text-align:center;margin-bottom:6px;color:rgba(255,255,255,.5)">Agregar <strong style="color:#f9d423;font-weight:400">cuerpo celeste</strong></h2>
+      <p style="text-align:center;font-size:.7rem;color:rgba(255,255,255,.15);letter-spacing:1.5px;margin-bottom:28px">Registra un nuevo planeta u objeto astronómico</p>
+      <form id="formAddCuerpo">
+        <div class="add-grid">
+          <div class="auth-campo"><label>Nombre del cuerpo</label><input type="text" id="addNombre" required placeholder="Ej: Plutón"></div>
+          <div class="auth-campo"><label>Tipo</label><select id="addTipo" required><option value="">Seleccionar...</option><option>Rocoso</option><option>Gaseoso</option><option>Helado</option><option>Enano</option><option>Asteroide</option><option>Cometa</option><option>Luna</option><option>Otro</option></select></div>
+          <div class="auth-campo"><label>Radio (km)</label><input type="text" id="addRadio" required placeholder="Ej: 1,737 km"></div>
+          <div class="auth-campo"><label>Distancia del Sol</label><input type="text" id="addDistancia" required placeholder="Ej: 5,900 millones km"></div>
+          <div class="auth-campo"><label>Período orbital</label><input type="text" id="addPeriodo" required placeholder="Ej: 248 años"></div>
+          <div class="auth-campo"><label>Cantidad de lunas</label><input type="number" id="addLunas" value="0" min="0" required></div>
+          <div class="auth-campo"><label>Gravedad (m/s²)</label><input type="text" id="addGravedad" required placeholder="Ej: 0.62 m/s²"></div>
+          <div class="auth-campo"><label>Color representativo</label><input type="color" id="addColor" value="#8a6e4b"></div>
+          <div class="auth-campo"><label>Tamaño visual (px)</label><input type="number" id="addTam" value="24" min="12" max="60" required></div>
+          <div class="auth-campo"><label>Posición orbital</label><input type="number" id="addOrb" value="50" min="10" max="100" required><span style="font-size:.6rem;color:rgba(255,255,255,.15)">Número mayor = más lejos del Sol</span></div>
+        </div>
+        <div class="auth-campo" style="grid-column:1/-1"><label>Descripción</label><textarea id="addInfo" required rows="3" placeholder="Describe el cuerpo celeste..."></textarea></div>
+        <div class="auth-campo" style="display:flex;align-items:center;gap:8px;margin-bottom:4px"><input type="checkbox" id="addAnill" style="width:auto"><label for="addAnill" style="margin:0;cursor:pointer">Tiene anillos</label></div>
+
+        <details style="margin-top:16px;border-top:1px solid rgba(255,255,255,.04);padding-top:16px">
+          <summary style="font-size:.7rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);cursor:pointer">Datos del descubrimiento <span style="color:rgba(255,255,255,.1)">(opcional)</span></summary>
+          <div class="add-grid" style="margin-top:14px">
+            <div class="auth-campo"><label>Descubridor</label><input type="text" id="addDescubridor" placeholder="Nombre del descubridor"></div>
+            <div class="auth-campo"><label>Año de descubrimiento</label><input type="text" id="addAnoDesc" placeholder="Ej: 1930"></div>
+            <div class="auth-campo" style="grid-column:1/-1"><label>Método de descubrimiento</label><input type="text" id="addMetodoDesc" placeholder="Ej: Telescopio, cálculos matemáticos, sonda espacial"></div>
+          </div>
+        </details>
+
+        <div class="add-err" id="addErr"></div>
+        <button type="submit" class="auth-btn" style="margin-top:16px">Agregar cuerpo celeste</button>
+      </form>
+    </div>
+  </div>
 </div>
 
 <script src="js/datos.js"></script>
@@ -95,17 +148,20 @@
   var avatarEl = document.getElementById('authAvatar');
   var userEl = document.getElementById('authUser');
   var emailEl = document.getElementById('authEmail');
+  var addCuerpo = document.getElementById('addCuerpo');
 
   function showSession() {
     if (session) {
       authForms.style.display = 'none';
       authSession.style.display = 'block';
+      addCuerpo.style.display = 'block';
       avatarEl.textContent = session.user.charAt(0).toUpperCase();
       userEl.textContent = session.user;
       emailEl.textContent = session.email;
     } else {
       authForms.style.display = 'block';
       authSession.style.display = 'none';
+      addCuerpo.style.display = 'none';
     }
   }
   showSession();
@@ -167,6 +223,50 @@
     sessionStorage.removeItem(SESS);
     session = null;
     showSession();
+  });
+
+  document.getElementById('formAddCuerpo').addEventListener('submit', function(e){
+    e.preventDefault();
+    var errEl = document.getElementById('addErr');
+    var nombre = document.getElementById('addNombre').value.trim();
+    if(!nombre){ errEl.textContent = 'Ingresa un nombre.'; return }
+    var slug = nombre.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'') || 'cuerpo';
+    var color = document.getElementById('addColor').value;
+    var custom = JSON.parse(localStorage.getItem('sistemaSolarCustomPlanets')) || [];
+    for(var i=0;i<custom.length;i++){ if(custom[i].slug===slug){ errEl.textContent = 'Ya existe un cuerpo con ese nombre.'; return } }
+
+    var c = color;
+    var r = parseInt(c.slice(1,3),16), g = parseInt(c.slice(3,5),16), b = parseInt(c.slice(5,7),16);
+    var factor = 1.3;
+    var rl = Math.min(255,Math.round(r*factor)), gl = Math.min(255,Math.round(g*factor)), bl = Math.min(255,Math.round(b*factor));
+    var rd = Math.round(r*0.6), gd = Math.round(g*0.6), bd = Math.round(b*0.6);
+    var grad = 'radial-gradient(circle at 35% 35%,rgb('+rl+','+gl+','+bl+'),'+c+' 35%,rgb('+rd+','+gd+','+bd+') 70%)';
+
+    var cuerpo = {
+      nombre: nombre,
+      slug: slug,
+      tipo: document.getElementById('addTipo').value,
+      radio: document.getElementById('addRadio').value.trim(),
+      distancia: document.getElementById('addDistancia').value.trim(),
+      periodo: document.getElementById('addPeriodo').value.trim(),
+      lunas: parseInt(document.getElementById('addLunas').value) || 0,
+      gravedad: document.getElementById('addGravedad').value.trim(),
+      info: document.getElementById('addInfo').value.trim(),
+      color: color,
+      grad: grad,
+      tam: parseInt(document.getElementById('addTam').value) || 24,
+      orb: parseInt(document.getElementById('addOrb').value) || 50,
+      anill: document.getElementById('addAnill').checked,
+      descubridor: document.getElementById('addDescubridor').value.trim() || '',
+      anoDesc: document.getElementById('addAnoDesc').value.trim() || '',
+      metodoDesc: document.getElementById('addMetodoDesc').value.trim() || ''
+    };
+    if(!cuerpo.descubridor){ delete cuerpo.descubridor; delete cuerpo.anoDesc; delete cuerpo.metodoDesc }
+
+    custom.push(cuerpo);
+    localStorage.setItem('sistemaSolarCustomPlanets', JSON.stringify(custom));
+    errEl.textContent = '';
+    window.location.href = 'index.html';
   });
 })();
 </script>

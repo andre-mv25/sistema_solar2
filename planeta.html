@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Planeta | Sistema Solar</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<script>(function(){try{var s=JSON.parse(sessionStorage.getItem('sistemaSolarSession'));if(!s)window.location.replace('formulario.html')}catch(e){window.location.replace('formulario.html')}})();</script>
+
+<div id="stars"></div>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <span class="nav-sol">
+      <span class="nav-sol-core"></span>
+      <span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span><span class="nav-sol-ray"></span>
+    </span>
+    <span class="nav-titulo">SISTEMA <em>SOLAR</em></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="formulario.html">Sesion</a></li>
+    <li><a href="formulario.html">Agregar</a></li>
+    <li class="nav-drop">
+      <a>Planetas <span class="nav-flecha">▾</span></a>
+      <ul class="nav-drop-menu" id="dropPlanetas"></ul>
+    </li>
+  </ul>
+</nav>
+
+<div class="pagina" id="paginaPlaneta">
+  <a class="volver" href="index.html">← Volver</a>
+  <div id="contenidoPlaneta"></div>
+</div>
+
+<script src="js/datos.js"></script>
+<script src="js/estrellas.js"></script>
+<script>
+(function(){
+  var params = new URLSearchParams(window.location.search);
+  var slug = params.get('slug');
+  if(!slug){ document.getElementById('contenidoPlaneta').innerHTML='<p style="color:rgba(255,255,255,.3);text-align:center;padding:60px 0">Cuerpo celeste no encontrado.</p>'; return }
+
+  var planeta = null;
+  for(var i=0;i<planetas.length;i++){
+    if(planetas[i].slug === slug){ planeta = planetas[i]; break }
+  }
+  if(!planeta){ document.getElementById('contenidoPlaneta').innerHTML='<p style="color:rgba(255,255,255,.3);text-align:center;padding:60px 0">Cuerpo celeste no encontrado.</p>'; return }
+
+  var html = '';
+  html += '<div class="cabeza">';
+  html += '<div class="cabeza-bola'+(planeta.anill?' anillado':'')+'" style="background:'+planeta.grad+';box-shadow:0 0 40px '+planeta.color+'33"></div>';
+  html += '<div class="cabeza-info">';
+  html += '<h1 style="color:'+planeta.color+'">'+planeta.nombre+'</h1>';
+  html += '<span class="tipo">'+planeta.tipo+'</span>';
+  html += '<div class="desc">'+planeta.info+'</div>';
+  if(planeta.descubridor){
+    html += '<div class="descubridor" style="margin-top:12px;font-size:.75rem;color:rgba(255,255,255,.25);letter-spacing:1.5px;border-top:1px solid rgba(255,255,255,.04);padding-top:12px">';
+    html += 'Descubierto por <strong style="color:rgba(255,255,255,.5)">'+planeta.descubridor+'</strong>';
+    if(planeta.anoDesc) html += ' en <strong style="color:rgba(255,255,255,.5)">'+planeta.anoDesc+'</strong>';
+    if(planeta.metodoDesc) html += ' · '+planeta.metodoDesc;
+    html += '</div>';
+  }
+  html += '</div></div>';
+
+  html += '<div class="stats">';
+  var campos = [
+    {l:'Radio',v:planeta.radio},
+    {l:'Distancia del Sol',v:planeta.distancia},
+    {l:'Período orbital',v:planeta.periodo},
+    {l:'Lunas',v:planeta.lunas},
+    {l:'Gravedad',v:planeta.gravedad},
+    {l:'Tipo',v:planeta.tipo}
+  ];
+  campos.forEach(function(c){
+    html += '<div class="stat"><div class="stat-l">'+c.l+'</div><div class="stat-v">'+c.v+'</div></div>';
+  });
+  html += '</div>';
+
+  html += '<div class="texto"><p>'+planeta.info+'</p></div>';
+
+  var mini = '<div class="mini-orbita">';
+  for(var j=0;j<planetas.length;j++){
+    mini += '<a href="'+(j<8?'planetas/':'')+planetas[j].slug+'.html'+(j>=8?'?slug='+planetas[j].slug:'')+'" style="background:'+planetas[j].color+';'+(planetas[j].slug===slug?'opacity:1;transform:scale(1.6)':'')+'"></a>';
+  }
+  mini += '</div>';
+  html += mini;
+
+  document.getElementById('contenidoPlaneta').innerHTML = html;
+})();
+</script>
+<script src="js/sistema.js"></script>
+</body>
+</html>

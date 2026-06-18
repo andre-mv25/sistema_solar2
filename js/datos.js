@@ -9,3 +9,11 @@ const planetas = [
   {nombre:'Neptuno',slug:'neptuno',tipo:'Helado',radio:'24,622 km',distancia:'4,495 millones km',periodo:'164.8 años',lunas:16,gravedad:'11.15 m/s²',info:'El más ventoso: vientos de 2,100 km/h. Descubierto por cálculos matemáticos antes de ser observado.',color:'#3b5c9a',grad:'radial-gradient(circle at 35% 35%,#5a8cc8,#2a4a8a 35%,#1a2e5a 70%)',tam:34,orb:44,anill:false}
 ];
 const sol = {nombre:'Sol',slug:'sol',tipo:'Estrella enana amarilla G2V',radio:'696,340 km',masa:'1.989 × 10³⁰ kg',temperatura:'5,505 °C',edad:'4,600 millones años',distanciaTierra:'149.6 millones km',info:'El Sol contiene el 99.8% de la masa del sistema solar. Su energía se produce mediante fusión nuclear, convirtiendo hidrógeno en helio a 15 millones °C en su núcleo.',color:'#f9d423',grad:'radial-gradient(circle at 35% 35%,#fff7a0,#f9d423 30%,#e8930a 70%,#c07200)'};
+(function(){
+  try {
+    var custom = JSON.parse(localStorage.getItem('sistemaSolarCustomPlanets')) || [];
+    custom.forEach(function(cp){
+      planetas.push(cp);
+    });
+  } catch(e) {}
+})();
